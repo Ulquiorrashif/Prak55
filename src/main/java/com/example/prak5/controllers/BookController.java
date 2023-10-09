@@ -2,6 +2,7 @@ package com.example.prak5.controllers;
 
 import com.example.prak5.entity.Book;
 import com.example.prak5.repository.BookRepository;
+import com.example.prak5.service.BookService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Controller;
@@ -15,14 +16,17 @@ import java.util.List;
 //@RequestMapping("/book")
 @CrossOrigin("*")
 public class BookController {
-    BookRepository bookRepository;
+    BookService bookService;
     @GetMapping("/show")
     public List get(){
-        return bookRepository.findAll();
+        System.out.println(bookService.getAll().get(0));
+
+        return bookService.getAll();
     }
     @PostMapping("/add")
     public void add(Book book){
         System.out.println(book);
-        bookRepository.save(book);
+        bookService.save(book);
     }
+
 }

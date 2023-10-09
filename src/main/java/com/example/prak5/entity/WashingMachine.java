@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class WashingMachine {
+public class WashingMachine  {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;

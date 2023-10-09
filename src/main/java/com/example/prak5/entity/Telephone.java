@@ -16,4 +16,6 @@ public class Telephone {
     private String type;
     private int price;
     private String title;
+
+    
 }

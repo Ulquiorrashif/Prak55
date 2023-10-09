@@ -1,21 +1,19 @@
 package com.example.prak5.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.management.ConstructorParameters;
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
 @Data
 public class Book {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String author;
     private int numberAuthor;
@@ -23,6 +21,10 @@ public class Book {
     private int price;
 
     private String title;
+    @ManyToMany
+    @JsonIgnore
+    private List<Cart> carts;
+
 
     @Override
     public String toString() {
