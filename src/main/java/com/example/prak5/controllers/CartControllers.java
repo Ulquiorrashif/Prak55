@@ -2,6 +2,7 @@ package com.example.prak5.controllers;
 
 import com.example.prak5.entity.Book;
 import com.example.prak5.entity.Cart;
+import com.example.prak5.repository.RoleRepository;
 import com.example.prak5.service.BookService;
 import com.example.prak5.service.CartService;
 import lombok.AllArgsConstructor;
@@ -14,9 +15,10 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 //@RequestMapping("/book")
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class CartControllers {
-    CartService cartService;
+    private CartService cartService;
+
     @GetMapping("/showCart")
     public List get(){
         System.out.println(cartService.getAll().get(0));

@@ -1,11 +1,13 @@
 package com.example.prak5.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Data
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -14,4 +16,6 @@ public class Client {
     private String email;
     private String login;
     private String password;
+    @ManyToMany(mappedBy = "clients")
+    private List<Role> roles = new ArrayList<>();
 }
